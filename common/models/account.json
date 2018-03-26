@@ -1,0 +1,39 @@
+{
+  "name": "Account",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Category": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "administrator",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
