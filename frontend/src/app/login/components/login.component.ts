@@ -6,7 +6,8 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
     selector: 'login',
-    templateUrl: '../templates/login.component.html'
+    templateUrl: '../templates/login.component.html',
+    styleUrls: ['../css/register.component.css']
 })
 export class LoginComponent {
 

@@ -41,11 +41,10 @@
                                     <input type="email" name="email" id="email" tabindex="1" class="form-control" [(ngModel)]='model.Email' pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                         #offEmail="ngModel" placeholder="Email Address" value="">
                                     <div *ngIf="offEmail.errors">
-                                        <div *ngIf="offEmail.errors.required">
-                                            Email required.
-                                        </div>
                                         <div *ngIf="offEmail.errors.pattern">
-                                            Email not valid.
+                                            <dd class='error'>
+                                                Email is invalid or already taken
+                                            </dd>
                                         </div>
                                     </div>
                                 </div>

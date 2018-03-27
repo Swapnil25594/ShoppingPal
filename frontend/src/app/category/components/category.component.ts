@@ -104,7 +104,7 @@ export class CategoryComponent implements OnInit {
         this.categoryService.getSubCategoriesByCategoryId(category.id)
             .subscribe(
             (response) => {
-                category.SubCategories = JSON.parse(response._body).body;
+                category.SubCategories = JSON.parse(response._body);
                 console.log('list of subcategories');
                 console.log(category.SubCategories);
             },
