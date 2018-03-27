@@ -47,19 +47,14 @@ export class CategoryComponent implements OnInit {
         //     );
 
 
-
         this.showloader = true;
         var config: any = {};
         config.from = this.from;
         config.to = this.to;
-        this.categoryService.getTopCategories(12)
+        this.categoryService.getCategoriesInrange(config)
             .subscribe(
             (response) => {
                 var array = JSON.parse(response._body).body;
-                if (array.legth > 0) {
-                    this.from = array[array.length - 1].id;
-                    this.to = this.from + this.increment;
-                }
                 this.AllCategory = this.AllCategory.concat(array);
                 console.log(this.AllCategory);
                 this.showloader = false;
@@ -70,6 +65,30 @@ export class CategoryComponent implements OnInit {
             () => {
             }
             );
+
+
+        // this.showloader = true;
+        // var config: any = {};
+        // config.from = this.from;
+        // config.to = this.to;
+        // this.categoryService.getTopCategories(12)
+        //     .subscribe(
+        //     (response) => {
+        //         var array = JSON.parse(response._body).body;
+        //         if (array.legth > 0) {
+        //             this.from = array[array.length - 1].id;
+        //             this.to = this.from + this.increment;
+        //         }
+        //         this.AllCategory = this.AllCategory.concat(array);
+        //         console.log(this.AllCategory);
+        //         this.showloader = false;
+        //     },
+        //     (err) => {
+        //         console.error(err);
+        //     },
+        //     () => {
+        //     }
+        //     );
     }
 
     reset() {
