@@ -51,7 +51,6 @@ export class CategoryComponent implements OnInit {
                     this.to = this.from + this.increment;
                 }
                 this.AllCategory = this.AllCategory.concat(array);
-                console.log(this.AllCategory);
                 this.showloader = false;
             },
             (err) => {
@@ -76,8 +75,6 @@ export class CategoryComponent implements OnInit {
             .subscribe(
             (response) => {
                 category.SubCategories = JSON.parse(response._body);
-                console.log('list of subcategories');
-                console.log(category.SubCategories);
             },
             (err) => {
                 console.error(err);
@@ -191,7 +188,6 @@ export class CategoryComponent implements OnInit {
                     (response) => {
                         var array = JSON.parse(response._body).body;
                         this.AllCategory = this.AllCategory.concat(array);
-                        console.log(this.AllCategory);
                         this.showloader = false;
                     },
                     (err) => {
@@ -223,7 +219,6 @@ export class CategoryComponent implements OnInit {
                 (response) => {
                     var array = JSON.parse(response._body).body;
                     this.AllCategory = array;
-                    console.log(this.AllCategory);
                     this.showloader = false;
                 },
                 (err) => {
@@ -249,7 +244,6 @@ export class CategoryComponent implements OnInit {
                 (response) => {
                     var array = JSON.parse(response._body).body;
                     this.AllCategory = array;
-                    console.log(this.AllCategory);
                     this.showloader = false;
                 },
                 (err) => {

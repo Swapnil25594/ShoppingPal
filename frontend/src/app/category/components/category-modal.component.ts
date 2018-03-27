@@ -100,7 +100,6 @@ export class CategoryModalComponent {
                 this.onAdd.emit(true);
                 this.toaster.clear();
                 this.toaster.pop('success', 'Category added successfully. Add more categories or close the modal.');
-                console.log(response);
             },
             (err) => {
                 console.error(err);
@@ -119,7 +118,6 @@ export class CategoryModalComponent {
                 this.onAdd.emit(true);
                 this.toaster.clear();
                 this.toaster.pop('success', 'Sub-Category added successfully. Add more sub categories or close the modal.');
-                console.log(response);
             },
             (err) => {
                 console.error(err);
