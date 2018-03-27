@@ -1,6 +1,6 @@
 var Promise = require('bluebird');
 module.exports = function (app, cb) {
-  var user = app.models.User;
+  var user = app.models.Account;
   Promise.resolve()
     .then(function () {
       return user.findOrCreate(
@@ -14,7 +14,7 @@ module.exports = function (app, cb) {
           email: 'goodjob@shoppinpal.com',
           password: 'test123'
         },
-        {validate: false});
+        { validate: false });
     })
     .then(function (user_one) {
       console.log('User 1: ', user_one);
@@ -29,7 +29,7 @@ module.exports = function (app, cb) {
           email: 'yourock@shoppinpal.com',
           password: 'test123'
         },
-        {validate: false});
+        { validate: false });
     })
     .then(function (user_two) {
       console.log('User 2: ', user_two);
