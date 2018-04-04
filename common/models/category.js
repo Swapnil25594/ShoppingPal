@@ -75,7 +75,7 @@ module.exports = function (Category) {
     Category.searchTypehead = function (accountId, pattern, limit, cb) {
 
 
-        Category.find({ where: { name: { like: pattern + '%' } } }, function (err, categories) {
+        Category.find({ where: { name: { like: pattern + '%' }, accountId: accountId } }, function (err, categories) {
             if (err) {
                 console.log(err);
                 return "";
