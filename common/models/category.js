@@ -74,8 +74,20 @@ module.exports = function (Category) {
 
     Category.searchTypehead = function (accountId, pattern, limit, cb) {
 
+        var lcPattern = pattern.charAt(0).toLowerCase() + pattern.substr(1);
+        var ucPattern = pattern.charAt(0).toUpperCase() + pattern.substr(1);
 
-        Category.find({ where: { name: { like: pattern + '%' }, accountId: accountId } }, function (err, categories) {
+        Category.find({
+            where: {
+                or: [
+                    { name: { like: lcPattern + '%' } },
+                    { name: { like: ucPattern + '%' } },
+                    { type: { like: lcPattern + '%' } },
+                    { type: { like: ucPattern + '%' } }
+                ],
+                accountId: accountId
+            }
+        }, function (err, categories) {
             if (err) {
                 console.log(err);
                 return "";
