@@ -42,7 +42,7 @@ module.exports = function (Category) {
     Category.getTopCategory = function (accountId, top, cb) {
 
 
-        Category.find({ limit: top }, function (err, categories) {
+        Category.find({ limit: top, where: { accountId: accountId } }, function (err, categories) {
             if (err) {
                 console.log(err);
                 return "";
